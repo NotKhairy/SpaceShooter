@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfamso1anbouj"]
+
+[ext_resource type="PackedScene" uid="uid://dcml3f5vxwlum" path="res://Scenes/Player.tscn" id="1_0ba56"]
+[ext_resource type="Script" uid="uid://6assqkx6erml" path="res://Scenes/level.gd" id="1_fuudy"]
+[ext_resource type="Texture2D" uid="uid://bnbat5yrpmf0s" path="res://Backgrounds/black.png" id="1_vsvp5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rbpu"]
+size = Vector2(200, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuudy"]
+size = Vector2(1280, 200)
+
+[sub_resource type="GDScript" id="GDScript_xylue"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_fuudy")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(641.5, 361.5)
+scale = Vector2(5.01172, 2.82422)
+texture = ExtResource("1_vsvp5")
+
+[node name="Player" parent="." instance=ExtResource("1_0ba56")]
+position = Vector2(575, 325)
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="RightBorder" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RightBorder"]
+position = Vector2(1380, 362)
+shape = SubResource("RectangleShape2D_8rbpu")
+
+[node name="LeftBorder" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LeftBorder"]
+position = Vector2(-100, 362)
+shape = SubResource("RectangleShape2D_8rbpu")
+
+[node name="UpperBorder" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/UpperBorder"]
+position = Vector2(641, -100)
+shape = SubResource("RectangleShape2D_fuudy")
+
+[node name="BottomBorder" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/BottomBorder"]
+position = Vector2(641, 820)
+shape = SubResource("RectangleShape2D_fuudy")
+
+[node name="MeteorTimer" type="Timer" parent="."]
+autostart = true
+script = SubResource("GDScript_xylue")
+
+[node name="Meteors" type="Node2D" parent="."]
+
+[node name="Lasers" type="Node2D" parent="."]
+
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
+[connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]
