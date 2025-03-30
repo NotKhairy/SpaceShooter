@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfamso1anbouj"]
+[gd_scene load_steps=8 format=3 uid="uid://cfamso1anbouj"]
 
 [ext_resource type="PackedScene" uid="uid://dcml3f5vxwlum" path="res://Scenes/Player.tscn" id="1_0ba56"]
 [ext_resource type="Script" uid="uid://6assqkx6erml" path="res://Scenes/level.gd" id="1_fuudy"]
 [ext_resource type="Texture2D" uid="uid://bnbat5yrpmf0s" path="res://Backgrounds/black.png" id="1_vsvp5"]
+[ext_resource type="PackedScene" uid="uid://bm6e7gl1w8w3g" path="res://Scenes/game_ui.tscn" id="4_fuudy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rbpu"]
 size = Vector2(200, 720)
@@ -12,16 +13,17 @@ size = Vector2(1280, 200)
 
 [sub_resource type="GDScript" id="GDScript_xylue"]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" groups=["Level Scene"]]
 script = ExtResource("1_fuudy")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(641.5, 361.5)
 scale = Vector2(5.01172, 2.82422)
 texture = ExtResource("1_vsvp5")
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_0ba56")]
-position = Vector2(575, 325)
+position = Vector2(640, 680)
 
 [node name="Borders" type="Node2D" parent="."]
 
@@ -61,5 +63,9 @@ script = SubResource("GDScript_xylue")
 
 [node name="Lasers" type="Node2D" parent="."]
 
+[node name="GameUI" parent="." instance=ExtResource("4_fuudy")]
+
+[connection signal="UIStart" from="." to="GameUI" method="_on_level_ui_start"]
+[connection signal="UIUpdate" from="." to="GameUI" method="_on_level_ui_update"]
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]

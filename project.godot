@@ -24,6 +24,10 @@ window/size/viewport_height=720
 
 project/assembly_name="Space Shooter"
 
+[global_group]
+
+levelScene=""
+
 [input]
 
 up={

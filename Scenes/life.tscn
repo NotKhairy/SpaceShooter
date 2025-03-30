@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfajw7ynyfo7h"]
+
+[ext_resource type="Script" uid="uid://coq1kcikk1ef" path="res://Scenes/life.gd" id="1_jesvm"]
+[ext_resource type="Texture2D" uid="uid://cufmdwqto37q8" path="res://PNG/UI/playerLife1_red.png" id="2_wvhb1"]
+
+[node name="life" type="Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jesvm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_wvhb1")
