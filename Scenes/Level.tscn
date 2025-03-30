@@ -59,9 +59,9 @@ shape = SubResource("RectangleShape2D_fuudy")
 autostart = true
 script = SubResource("GDScript_xylue")
 
-[node name="Meteors" type="Node2D" parent="."]
-
 [node name="Lasers" type="Node2D" parent="."]
+
+[node name="Meteors" type="Node2D" parent="."]
 
 [node name="GameUI" parent="." instance=ExtResource("4_fuudy")]
 

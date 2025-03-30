@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ddvocrjbbaq2" path="res://Scenes/laser.gd" id="1_mou6w"]
 [ext_resource type="Texture2D" uid="uid://v3othg67vses" path="res://PNG/Lasers/laserBlue01.png" id="1_r1bh0"]
 
-[node name="Laser" type="Area2D"]
+[node name="Laser" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_mou6w")
