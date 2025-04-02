@@ -20,7 +20,7 @@ var rotation_speed: int
 	set(_value):
 		_create_polygon2d_nodes_from_sprite2d()
 
-signal collision
+signal collision(body: Node2D)
 
 func _ready() -> void:
 	var width = get_viewport().get_visible_rect().size[0]
@@ -47,11 +47,13 @@ func _process (delta):
 
 func _on_body_entered(body: Node2D) -> void:
 	if (body.name == "Player") :
-		collision.emit()
+		collision.emit(body)
 	else :
+		body.queue_free()
 		health -= 1
 		if(health <= 0) :
 			queue_free()
+		collision.emit(body)
 func _create_polygon2d_nodes_from_sprite2d():
 	# Assume Sprite2D with texture and StaticBody2D exist
 	var sprite = $MeteorPicture

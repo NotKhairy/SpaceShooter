@@ -1,9 +1,14 @@
-extends CharacterBody2D
-var laserSpeed: int = 700
+extends Node
+var score: int = 0
+var health: int
+enum difficulty { EASY, MEDIUM, HARD }
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += Vector2(-(laserSpeed * sin(rotation)), (laserSpeed * cos(rotation))) * delta
+	pass

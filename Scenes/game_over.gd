@@ -1,9 +1,11 @@
-extends CharacterBody2D
-var laserSpeed: int = 700
+extends Control
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	$MarginContainer/VBoxContainer/ScoreView.text = str(Global.score)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += Vector2(-(laserSpeed * sin(rotation)), (laserSpeed * cos(rotation))) * delta
+	pass
