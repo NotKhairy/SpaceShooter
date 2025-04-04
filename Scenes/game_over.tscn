@@ -14,7 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_ek8ke")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(0, 300)
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -27,6 +27,7 @@ grow_vertical = 2
 theme_override_constants/margin_bottom = 176
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
@@ -42,3 +43,12 @@ theme_override_fonts/font = ExtResource("2_ek8ke")
 theme_override_font_sizes/font_size = 41
 text = "Score View"
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 9.55
+theme_override_fonts/font = ExtResource("1_8fo1c")
+theme_override_font_sizes/font_size = 26
+text = "Play Again"
